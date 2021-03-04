@@ -1,0 +1,31 @@
+# Default values for api-gateway.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: registry.choerodon.com.cn/choerodon/o2o-support-idaas-vue-demo
+  pullPolicy: Always
+
+service:
+  port: 80
+
+env:
+  open:
+    NODECONFIG_URL: http://o2o-support-dev.o2o-support-idaas-vue-demo.devgw.yonghui.cn
+
+logs:
+  parser: nginx
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources,such as Minikube. If you do want to specify resources,uncomment the following
+  # lines,adjust them as necessary,and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 1
+    memory: 2Gi
+  requests:
+    cpu: 0.5
+    memory: 0.5Gi
